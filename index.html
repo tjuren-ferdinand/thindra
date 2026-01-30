@@ -1024,12 +1024,12 @@
                                         🎬 VIDEO
                                     </div>
                                 </div>
-                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <div class="video-play-icon bg-white/90 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <svg class="w-6 h-6 text-champagne-gold" fill="currentColor" viewBox="0 0 20 20">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="video-play-btn bg-champagne-gold/90 hover:bg-champagne-gold text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 shadow-lg" data-video="6">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                         </svg>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1051,12 +1051,12 @@
                                         🎬 VIDEO
                                     </div>
                                 </div>
-                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <div class="video-play-icon bg-white/90 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <svg class="w-6 h-6 text-champagne-gold" fill="currentColor" viewBox="0 0 20 20">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="video-play-btn bg-champagne-gold/90 hover:bg-champagne-gold text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 shadow-lg" data-video="6">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                                         </svg>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1668,6 +1668,100 @@ Anders Lindqvist, närmsta chef (lämnas på begäran)
                 setTimeout(() => {
                     this.style.transform = 'scale(1.05)';
                 }, 200);
+            });
+        });
+        
+        // AGGRESSIVE iOS VIDEO FIX
+        let isVideoPlaying = {};
+        
+        // Force video play on first user interaction
+        function initVideoPlay() {
+            document.querySelectorAll('.mobile-video').forEach((video, index) => {
+                const parent = video.closest('.album-item');
+                isVideoPlaying[index] = false;
+                
+                // Multiple event listeners for iOS
+                parent.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (!isVideoPlaying[index]) {
+                        // Force play with multiple attempts
+                        video.play().then(() => {
+                            isVideoPlaying[index] = true;
+                            console.log('Video playing:', index);
+                        }).catch(error => {
+                            console.log('Video play failed, trying again:', error);
+                            // Second attempt
+                            setTimeout(() => {
+                                video.play().then(() => {
+                                    isVideoPlaying[index] = true;
+                                }).catch(err => {
+                                    console.log('Second attempt failed:', err);
+                                });
+                            }, 100);
+                        });
+                    } else {
+                        video.pause();
+                        isVideoPlaying[index] = false;
+                    }
+                });
+                
+                // Touch events for iOS
+                parent.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                }, { passive: false });
+                
+                parent.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    // Trigger click event
+                    parent.click();
+                }, { passive: false });
+            });
+        }
+        
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initVideoPlay);
+        } else {
+            initVideoPlay();
+        }
+        
+        // VIDEO PLAY BUTTON HANDLERS
+        document.querySelectorAll('.video-play-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const videoId = this.dataset.video;
+                const parent = this.closest('.album-item');
+                const video = parent.querySelector('.mobile-video');
+                
+                if (video) {
+                    if (video.paused) {
+                        video.play().then(() => {
+                            this.style.display = 'none';
+                        }).catch(error => {
+                            console.log('Video play failed:', error);
+                        });
+                    } else {
+                        video.pause();
+                        this.style.display = 'flex';
+                    }
+                }
+            });
+        });
+        
+        // Hide play button when video starts playing
+        document.querySelectorAll('.mobile-video').forEach(video => {
+            video.addEventListener('play', function() {
+                const btn = this.closest('.album-item').querySelector('.video-play-btn');
+                if (btn) btn.style.display = 'none';
+            });
+            
+            video.addEventListener('pause', function() {
+                const btn = this.closest('.album-item').querySelector('.video-play-btn');
+                if (btn) btn.style.display = 'flex';
             });
         });
         
