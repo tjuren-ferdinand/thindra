@@ -242,6 +242,40 @@
             video {
                 max-width: 100% !important;
                 height: auto !important;
+                object-fit: cover !important;
+                -webkit-appearance: none !important;
+                appearance: none !important;
+            }
+            
+            /* Mobile video container */
+            .video-container {
+                position: relative !important;
+                width: 100% !important;
+                padding-bottom: 100% !important; /* 1:1 aspect ratio */
+                overflow: hidden !important;
+            }
+            
+            .video-container video {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+            }
+            
+            /* Mobile video controls */
+            video::-webkit-media-controls {
+                display: none !important;
+            }
+            
+            video::-webkit-media-controls-start-playback-button {
+                display: none !important;
+            }
+            
+            /* Mobile video poster */
+            video {
+                background: #000 !important;
             }
         }
         
@@ -975,8 +1009,8 @@
                         
                         <!-- Video 6 -->
                         <div class="album-item relative group fade-in-up" style="animation-delay: 0.5s;">
-                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
-                                <video class="w-full h-full object-cover" muted loop>
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg video-container">
+                                <video class="w-full h-full object-cover" muted loop playsinline autoplay webkit-playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23fff' font-size='24' font-family='Arial'%3E🎬 Video%3C/text%3E%3C/svg%3E">
                                     <source src="alb6.MP4" type="video/mp4">
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
@@ -995,8 +1029,8 @@
                         
                         <!-- Video 7 -->
                         <div class="album-item relative group fade-in-up" style="animation-delay: 0.6s;">
-                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
-                                <video class="w-full h-full object-cover" muted loop>
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg video-container">
+                                <video class="w-full h-full object-cover" muted loop playsinline autoplay webkit-playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23fff' font-size='24' font-family='Arial'%3E🎬 Video%3C/text%3E%3C/svg%3E">
                                     <source src="alb7.MP4" type="video/mp4">
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
@@ -1015,8 +1049,8 @@
                         
                         <!-- Video 8 -->
                         <div class="album-item relative group fade-in-up" style="animation-delay: 0.7s;">
-                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
-                                <video class="w-full h-full object-cover" muted loop>
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg video-container">
+                                <video class="w-full h-full object-cover" muted loop playsinline autoplay webkit-playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23fff' font-size='24' font-family='Arial'%3E🎬 Video%3C/text%3E%3C/svg%3E">
                                     <source src="alb8.MP4" type="video/mp4">
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
@@ -1035,8 +1069,8 @@
                         
                         <!-- Video 9 -->
                         <div class="album-item relative group fade-in-up" style="animation-delay: 0.8s;">
-                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
-                                <video class="w-full h-full object-cover" muted loop>
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg video-container">
+                                <video class="w-full h-full object-cover" muted loop playsinline autoplay webkit-playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23fff' font-size='24' font-family='Arial'%3E🎬 Video%3C/text%3E%3C/svg%3E">
                                     <source src="alb9.MP4" type="video/mp4">
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
@@ -1055,8 +1089,8 @@
                         
                         <!-- Video 10 -->
                         <div class="album-item relative group fade-in-up" style="animation-delay: 0.9s;">
-                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
-                                <video class="w-full h-full object-cover" muted loop>
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg video-container">
+                                <video class="w-full h-full object-cover" muted loop playsinline autoplay webkit-playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23fff' font-size='24' font-family='Arial'%3E🎬 Video%3C/text%3E%3C/svg%3E">
                                     <source src="alb10.MP4" type="video/mp4">
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
