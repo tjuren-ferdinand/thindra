@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thindra Lundqvist | Portfolio & CV</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --soft-cream: #F9F8F6;
+            --charcoal: #1A1A1A;
+            --champagne-gold: #D4AF37;
+            --light-gold: #F4E5C2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--soft-cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .glass-morphism {
+            background: rgba(249, 248, 246, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
+        .animate-delay-800 { animation-delay: 0.8s; opacity: 0; }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.1);
+        }
+        
+        /* Heart hover effect */
+        .heart-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .heart-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--charcoal);
+            color: var(--soft-cream);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .heart-container:hover .heart-tooltip {
+            opacity: 1;
+        }
+        
+        /* CV Section Styles */
+        .cv-section {
+            background: linear-gradient(135deg, var(--soft-cream) 0%, #ffffff 100%);
+        }
+        
+        .cv-card {
+            background: white;
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .cv-card:hover {
+            border-color: var(--champagne-gold);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1);
+        }
+        
+        .skill-bar {
+            background: #f0f0f0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            background: linear-gradient(90deg, var(--champagne-gold), var(--light-gold));
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+        
+        /* Download button */
+        .download-btn {
+            background: linear-gradient(135deg, var(--charcoal), #2a2a2a);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .download-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Navigation scroll effect */
+        .nav-scrolled {
+            background: rgba(249, 248, 246, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(26, 26, 26, 0.05);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Script font for intimate text */
+        .script-font {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-morphism transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-light text-charcoal serif">TL</div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hem" class="text-charcoal hover:text-champagne-gold transition-colors duration-300">Hem</a>
+                    <a href="#var-du-ar-unik" class="text-charcoal hover:text-champagne-gold transition-colors duration-300">Vår Story</a>
+                    <a href="#cv" class="text-charcoal hover:text-champagne-gold transition-colors duration-300">CV & Kompetens</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6 text-charcoal"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 mobile-menu md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#hem" class="text-2xl text-charcoal hover:text-champagne-gold mobile-nav-link">Hem</a>
+            <a href="#var-du-ar-unik" class="text-2xl text-charcoal hover:text-champagne-gold mobile-nav-link">Vår Story</a>
+            <a href="#cv" class="text-2xl text-charcoal hover:text-champagne-gold mobile-nav-link">CV & Kompetens</a>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="hem" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="text-center max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-bold text-charcoal mb-6 serif fade-in">
+                Thindra Lundqvist
+            </h1>
+            
+            <div class="heart-container mb-8 fade-in animate-delay-200">
+                <p class="text-2xl md:text-3xl script-font text-charcoal/80">
+                    Min Flärpen
+                </p>
+                <div class="heart-tooltip">
+                    💝 Vårt månadsdatum: 29 januari
+                </div>
+            </div>
+            
+            <div class="flex justify-center mb-12 fade-in animate-delay-400">
+                <div class="pulse">
+                    <i data-lucide="heart" class="w-8 h-8 text-champagne-gold"></i>
+                </div>
+            </div>
+            
+            <div class="flex justify-center space-x-4 fade-in animate-delay-600">
+                <a href="#var-du-ar-unik" class="border border-charcoal px-8 py-3 rounded-full hover:bg-charcoal hover:text-white transition-all duration-300">
+                    <span class="font-medium">Upptäck mer</span>
+                </a>
+                <a href="#cv" class="bg-charcoal text-white px-8 py-3 rounded-full hover:bg-champagne-gold transition-all duration-300">
+                    <span class="font-medium">Se CV</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Personal Tribute Section -->
+    <section id="var-du-ar-unik" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 serif">Varför du är unik</h2>
+                <p class="text-lg text-charcoal/70 max-w-2xl mx-auto">Allt det som gör dig till den mest exceptionella personen jag vet</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in-up animate-delay-200">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-2xl font-semibold text-charcoal mb-4 serif">Ditt sinne</h3>
+                    <p class="text-charcoal/70 leading-relaxed">Din intelligens och förmåga att se världen med en unik lins inspirerar mig varje dag. Du löser problem med en elegance som få besitter, och din nyfikenhet vet inga gränser.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in-up animate-delay-400">
+                    <div class="text-4xl mb-4">❤️</div>
+                    <h3 class="text-2xl font-semibold text-charcoal mb-4 serif">Ditt hjärta</h3>
+                    <p class="text-charcoal/70 leading-relaxed">Din empatiska natur och genuina omtanke för andra gör världen till en bättre plats. Du bryr dig på ett sätt som är både starkt och ömt, en sällsynt kombination.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover fade-in-up animate-delay-600">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-semibold text-charcoal mb-4 serif">Din själ</h3>
+                    <p class="text-charcoal/70 leading-relaxed">Din kreativa anda och förmåga att finna skönhet i det vardagliga är en konstform. Du gör det vanliga extraordinärt och det extraordinära tillgängligt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Professional CV Section -->
+    <section id="cv" class="cv-section py-20 px-6 border-t border-charcoal/10">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Section Header -->
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-4 serif">Professional Portfolio</h2>
+                <p class="text-lg text-charcoal/70 max-w-2xl mx-auto">Strategisk kommunikation & Projektledning</p>
+            </div>
+            
+            <!-- CV Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Left Column: Experience & Education -->
+                <div class="space-y-8 slide-in-left">
+                    <!-- Experience -->
+                    <div class="cv-card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-charcoal mb-6 serif">Erfarenhet</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-champagne-gold pl-6">
+                                <h4 class="text-lg font-semibold text-charcoal">Senior Projektledare</h4>
+                                <p class="text-champagne-gold font-medium mb-2">Tech Innovation AB</p>
+                                <p class="text-charcoal/70 text-sm mb-2">2022 - Nuvarande</p>
+                                <p class="text-charcoal/60">Ledning av komplexa digitala transformationsprojekt med fokus på användarupplevelse och affärsnytta. Ansvar för team på 8+ personer och budgetar upp till 15M SEK.</p>
+                            </div>
+                            
+                            <div class="border-l-2 border-champagne-gold pl-6">
+                                <h4 class="text-lg font-semibold text-charcoal">Strategisk Kommunikatör</h4>
+                                <p class="text-champagne-gold font-medium mb-2">Global Communications Agency</p>
+                                <p class="text-charcoal/70 text-sm mb-2">2020 - 2022</p>
+                                <p class="text-charcoal/60">Utveckling och implementering av kommunikationsstrategier för internationella varumärken. Specialisering inom digital marknadsföring och content marketing.</p>
+                            </div>
+                            
+                            <div class="border-l-2 border-champagne-gold pl-6">
+                                <h4 class="text-lg font-semibold text-charcoal">Marketing Coordinator</h4>
+                                <p class="text-champagne-gold font-medium mb-2">Creative Solutions Ltd</p>
+                                <p class="text-charcoal/70 text-sm mb-2">2018 - 2020</p>
+                                <p class="text-charcoal/60">Koordinering av marknadsföringskampanjer och event management. Ansvar för sociala medier och content creation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Education -->
+                    <div class="cv-card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-charcoal mb-6 serif">Utbildning</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-champagne-gold pl-6">
+                                <h4 class="text-lg font-semibold text-charcoal">Master of Arts, Communication</h4>
+                                <p class="text-champagne-gold font-medium mb-2">Stockholms Universitet</p>
+                                <p class="text-charcoal/70 text-sm">2016 - 2018</p>
+                                <p class="text-charcoal/60">Inriktning: Strategisk kommunikation och medievetenskap</p>
+                            </div>
+                            
+                            <div class="border-l-2 border-champagne-gold pl-6">
+                                <h4 class="text-lg font-semibold text-charcoal">Bachelor of Arts, Media Studies</h4>
+                                <p class="text-champagne-gold font-medium mb-2">Uppsala Universitet</p>
+                                <p class="text-charcoal/70 text-sm">2013 - 2016</p>
+                                <p class="text-charcoal/60">Inriktning: Medie- och kommunikationsvetenskap</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Skills & Contact -->
+                <div class="space-y-8 slide-in-right">
+                    <!-- Skills -->
+                    <div class="cv-card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-charcoal mb-6 serif">Färdigheter</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-charcoal">Projektledning</span>
+                                    <span class="text-champagne-gold">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-charcoal">Strategisk Kommunikation</span>
+                                    <span class="text-champagne-gold">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-charcoal">Digital Marknadsföring</span>
+                                    <span class="text-champagne-gold">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-charcoal">Content Creation</span>
+                                    <span class="text-champagne-gold">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-charcoal">Team Leadership</span>
+                                    <span class="text-champagne-gold">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Languages -->
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-charcoal mb-4">Språk</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="font-medium text-charcoal">Svenska</p>
+                                    <p class="text-sm text-charcoal/70">Modersmål</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-charcoal">Engelska</p>
+                                    <p class="text-sm text-charcoal/70">Flerspråkig</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-charcoal">Tyska</p>
+                                    <p class="text-sm text-charcoal/70">Goda kunskaper</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-charcoal">Spanska</p>
+                                    <p class="text-sm text-charcoal/70">Grundläggande</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div class="cv-card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-charcoal mb-6 serif">Kontakt</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-champagne-gold"></i>
+                                <span class="text-charcoal">thindra.lundqvist@email.com</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="phone" class="w-5 h-5 text-champagne-gold"></i>
+                                <span class="text-charcoal">+46 70 123 45 67</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="linkedin" class="w-5 h-5 text-champagne-gold"></i>
+                                <span class="text-charcoal">linkedin.com/in/thindralundqvist</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-champagne-gold"></i>
+                                <span class="text-charcoal">Stockholm, Sverige</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Download CV Button -->
+                        <div class="mt-8 text-center">
+                            <button class="download-btn">
+                                <i data-lucide="download" class="w-5 h-5"></i>
+                                <span>Ladda ner CV</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-charcoal text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-2 serif">Thindra Lundqvist</h3>
+                <p class="text-white/80">Strategisk kommunikatör & Projektledare</p>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-white/60 hover:text-champagne-gold transition-colors">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-white/60 hover:text-champagne-gold transition-colors">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-white/60 hover:text-champagne-gold transition-colors">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                </a>
+            </div>
+            
+            <p class="text-white/60 text-sm">© 2024 Thindra Lundqvist. Alla rättigheter reserverade.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-charcoal"></i>';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-charcoal"></i>';
+            }
+            lucide.createIcons();
+        });
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-charcoal"></i>';
+                isMenuOpen = false;
+                lucide.createIcons();
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animate skill bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        const skillsSection = document.querySelector('.cv-card');
+        if (skillsSection) {
+            skillObserver.observe(skillsSection);
+        }
+        
+        // Download CV functionality
+        document.querySelector('.download-btn').addEventListener('click', function() {
+            // Create a simple text-based CV for download
+            const cvContent = `
+THINDRA LUNDQVIST
+Strategisk Kommunikatör & Projektledare
+
+KONTAKT
+Email: thindra.lundqvist@email.com
+Telefon: +46 70 123 45 67
+LinkedIn: linkedin.com/in/thindralundqvist
+Plats: Stockholm, Sverige
+
+ERFARENHET
+Senior Projektledare | Tech Innovation AB | 2022 - Nuvarande
+- Ledning av komplexa digitala transformationsprojekt
+- Ansvar för team på 8+ personer och budgetar upp till 15M SEK
+- Fokus på användarupplevelse och affärsnytta
+
+Strategisk Kommunikatör | Global Communications Agency | 2020 - 2022
+- Utveckling och implementering av kommunikationsstrategier
+- Specialisering inom digital marknadsföring och content marketing
+
+Marketing Coordinator | Creative Solutions Ltd | 2018 - 2020
+- Koordinering av marknadsföringskampanjer och event management
+- Ansvar för sociala medier och content creation
+
+UTBILDNING
+Master of Arts, Communication | Stockholms Universitet | 2016 - 2018
+Bachelor of Arts, Media Studies | Uppsala Universitet | 2013 - 2016
+
+FÄRDIGHETER
+- Projektledning (95%)
+- Strategisk Kommunikation (90%)
+- Digital Marknadsföring (85%)
+- Content Creation (88%)
+- Team Leadership (92%)
+
+SPRÅK
+Svenska (Modersmål)
+Engelska (Flerspråkig)
+Tyska (Goda kunskaper)
+Spanska (Grundläggande)
+            `;
+            
+            const blob = new Blob([cvContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Thindra_Lundqvist_CV.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        });
+        
+        // Add entrance animations on scroll
+        const animateObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            animateObserver.observe(el);
+        });
+    </script>
+</body>
+</html>

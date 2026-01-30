@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thindra Lundqvist | Portfolio & CV</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --soft-cream: #F9F8F6;
+            --charcoal: #1A1A1A;
+            --champagne-gold: #D4AF37;
+            --light-gold: #F4E5C2;
+            --dusty-rose: #d4a5a5;
+            --warm-white: #faf9f7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease;
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Script font */
+        .script-font {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        /* Premium animations */
+        @keyframes pulse-gold {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(212, 175, 55, 0);
+            }
+        }
+        
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        /* Love card flip animation */
+        .love-card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        
+        .love-card:hover {
+            transform: rotateY(10deg) scale(1.02);
+        }
+        
+        /* Timeline animations */
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Music player animation */
+        @keyframes musicPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        .music-playing {
+            animation: musicPulse 1s infinite;
+        }
+        
+        /* Shooting star animation */
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(-100px) translateY(-100px) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(200px) translateY(200px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        
+        .shooting-star {
+            animation: shootingStar 3s ease-in-out infinite;
+        }
+        
+        /* Breathing glow animation for luxury counter */
+        @keyframes breathingGlow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+                transform: scale(1.02);
+            }
+        }
+        
+        /* Floating memory cards parallax */
+        .floating-memory-card {
+            transition: all 0.3s ease-out;
+        }
+        
+        .floating-memory-card:hover {
+            z-index: 10;
+            transform: scale(1.05) !important;
+        }
+        
+        /* Love messages animation */
+        .love-message-card {
+            transition: all 0.3s ease;
+        }
+        
+        .love-message-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Album items animation */
+        .album-item {
+            transition: all 0.3s ease;
+        }
+        
+        .album-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        /* Theme Styles */
+        .romantic-theme {
+            background: linear-gradient(to-br, var(--warm-white), to-stone-50);
+            color: var(--charcoal);
+        }
+        
+        .professional-theme {
+            background-color: var(--soft-cream);
+            color: var(--charcoal);
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .glass-morphism-pro {
+            background: rgba(249, 248, 246, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.1);
+        }
+        
+        /* Heart hover effect */
+        .heart-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .heart-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--charcoal);
+            color: var(--soft-cream);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .heart-container:hover .heart-tooltip {
+            opacity: 1;
+        }
+        
+        /* Heart particles */
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            animation: heartFloat 3s ease-out forwards;
+            z-index: 9999;
+        }
+        
+        @keyframes heartFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0.3);
+            }
+        }
+        
+        /* Content visibility */
+        .content-section {
+            transition: all 0.5s ease;
+        }
+        
+        .hidden-content {
+            display: none;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Script font */
+        .script-font {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        /* Blob animations */
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+        
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        
+        /* CV Section Styles */
+        .cv-section {
+            background: linear-gradient(135deg, var(--soft-cream) 0%, #ffffff 100%);
+        }
+        
+        .cv-card {
+            background: white;
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .cv-card:hover {
+            border-color: var(--champagne-gold);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1);
+        }
+        
+        .skill-bar {
+            background: #f0f0f0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            background: linear-gradient(90deg, var(--champagne-gold), var(--light-gold));
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+        
+        /* Download button */
+        .download-btn {
+            background: linear-gradient(135deg, var(--charcoal), #2a2a2a);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .download-btn:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="romantic-theme" id="body">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-morphism transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-light text-charcoal serif" id="nav-logo">TL</div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8" id="desktop-nav">
+                    <a href="#hem" class="text-charcoal hover:text-champagne-gold transition-colors duration-300 nav-link">Hem</a>
+                    <a href="#vår-resa" class="text-charcoal hover:text-champagne-gold transition-colors duration-300 nav-link">Vår resa</a>
+                    <a href="#varför-du-är-fantastisk" class="text-charcoal hover:text-champagne-gold transition-colors duration-300 nav-link">Varför du är fantastisk</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6 text-charcoal"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 mobile-menu md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#hem" class="text-2xl text-charcoal hover:text-champagne-gold mobile-nav-link">Hem</a>
+            <a href="#vår-resa" class="text-2xl text-charcoal hover:text-champagne-gold mobile-nav-link">Vår resa</a>
+            <a href="#varför-du-är-fantastisk" class="text-2xl text-charcoal hover:text-champagne-gold mobile-nav-link">Varför du är fantastisk</a>
+        </div>
+    </div>
+    
+    <!-- ROMANTIC CONTENT -->
+    <div id="romantic-content">
+        
+        <!-- Hero Section -->
+        <section id="hem" class="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
+            <div class="text-center max-w-6xl relative z-10 fade-in">
+                <div class="mb-8">
+                    <div class="w-32 h-32 mx-auto relative overflow-hidden rounded-full shadow-2xl border-4 border-champagne-gold/20">
+                        <img src="thindra-photo.jpg" alt="Thindra Lundqvist" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-champagne-gold/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                </div>
+                <h1 class="text-7xl md:text-9xl font-bold text-charcoal mb-6 serif">Thindra Lundqvist</h1>
+                <p class="text-2xl md:text-3xl text-champagne-gold script-font mb-8">Min favoritperson, även känd som Flärpen</p>
+                <div class="flex gap-4 justify-center">
+                    <button id="heart-btn" class="bg-white px-8 py-4 rounded-full shadow-xl hover:scale-105 transition-all border border-champagne-gold/20">
+                        <i data-lucide="heart" class="w-6 h-6 text-dusty-rose inline mr-2"></i>
+                        Skicka kärlek
+                    </button>
+                    <a href="#vår-resa" class="border-2 border-champagne-gold/30 px-8 py-4 rounded-full hover:bg-champagne-gold/10 transition-all">
+                        Vår resa
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Love Counter -->
+        <section class="py-20 px-6 bg-gradient-to-br from-cream to-white">
+            <div class="max-w-6xl mx-auto text-center fade-in-up">
+                <div class="mb-12">
+                    <div class="text-6xl mb-6">
+                        <div class="relative inline-block">
+                            <div class="w-16 h-16 bg-gradient-to-br from-champagne-gold to-dusty-rose rounded-full mx-auto pulse-gold flex items-center justify-center">
+                                <i data-lucide="heart" class="w-8 h-8 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="text-6xl font-bold text-charcoal mb-6 serif">Livslång Kärlek</h2>
+                    <p class="text-2xl text-champagne-gold script-font mb-8">Varje sekund med dig är en gåva. Tid sedan vår magiska jul:</p>
+                </div>
+                <div class="bg-white/80 backdrop-blur-md p-16 rounded-3xl shadow-2xl border border-champagne-gold/20">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <div class="text-7xl md:text-8xl font-bold text-champagne-gold serif breathing-glow" id="days">0</div>
+                            <div class="text-lg text-charcoal/60 tracking-widest uppercase mt-2">Dagar</div>
+                        </div>
+                        <div>
+                            <div class="text-7xl md:text-8xl font-bold text-dusty-rose serif breathing-glow" id="hours">0</div>
+                            <div class="text-lg text-charcoal/60 tracking-widest uppercase mt-2">Timmar</div>
+                        </div>
+                        <div>
+                            <div class="text-7xl md:text-8xl font-bold text-champagne-gold serif breathing-glow" id="minutes">0</div>
+                            <div class="text-lg text-charcoal/60 tracking-widest uppercase mt-2">Minuter</div>
+                        </div>
+                        <div>
+                            <div class="text-7xl md:text-8xl font-bold text-dusty-rose serif breathing-glow" id="seconds">0</div>
+                            <div class="text-lg text-charcoal/60 tracking-widest uppercase mt-2">Sekunder</div>
+                        </div>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-champagne-gold/20">
+                        <p class="text-xl text-charcoal/70 script-font">
+                            "Julen 2025 gav mig den största gåvan av alla - du 💝"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Timeline -->
+        <section id="vår-resa" class="py-20 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl font-bold text-charcoal mb-16 text-center serif">Vår resa</h2>
+                <div class="relative">
+                    <div class="absolute left-1/2 w-1 h-full bg-gradient-to-b from-champagne-gold to-dusty-rose"></div>
+                    
+                    <div class="space-y-16">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gradient-to-br from-red-50 to-green-50 p-8 rounded-2xl shadow-lg border border-red-100">
+                                    <div class="text-4xl mb-4">🎄</div>
+                                    <h3 class="text-2xl font-bold text-charcoal mb-3 serif">Vår juldag 2025</h3>
+                                    <p class="text-charcoal/70">Det behövdes ingen önskelista det året. Du var allt jag behövde.</p>
+                                    <p class="text-sm text-red-500 font-medium mt-3">Den bästa julklappen jag någonsin fått är du.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow-lg"></div>
+                            <div class="w-1/2"></div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-1/2"></div>
+                            <div class="absolute left-1/2 w-6 h-6 bg-champagne-gold rounded-full border-4 border-white shadow-lg"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gradient-to-br from-white to-cream p-8 rounded-2xl shadow-lg border border-champagne-gold/20">
+                                    <div class="text-3xl mb-4">🌸</div>
+                                    <p class="text-charcoal/70 text-center">Vårt nästa kapitel...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gradient-to-br from-cream to-white p-8 rounded-2xl shadow-lg border border-dusty-rose/20">
+                                    <div class="text-3xl mb-4">☀️</div>
+                                    <p class="text-charcoal/70 text-center">Resten får framtiden skriva ✨</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 w-6 h-6 bg-dusty-rose rounded-full border-4 border-white shadow-lg"></div>
+                            <div class="w-1/2"></div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-1/2"></div>
+                            <div class="absolute left-1/2 w-6 h-6 bg-champagne-gold rounded-full border-4 border-white shadow-lg"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gradient-to-br from-champagne-gold/10 to-dusty-rose/10 p-8 rounded-2xl shadow-lg border border-champagne-gold/20">
+                                    <div class="text-3xl mb-4">🏠</div>
+                                    <p class="text-charcoal/70 text-center">Allt vi har framför oss ❤️</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why I Love You Grid -->
+        <section id="varför-du-är-fantastisk" class="py-20 px-6 bg-gradient-to-br from-cream to-white">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-bold text-charcoal mb-16 text-center serif">Varför jag älskar dig</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="love-card bg-white p-8 rounded-2xl shadow-lg border border-champagne-gold/20 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                        <div class="text-4xl mb-4">💖</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-3">Ditt hjärta</h3>
+                        <p class="text-charcoal/70">Världens tryggaste famn. Tack för att du alltid ser till att jag mår bra.</p>
+                    </div>
+                    <div class="love-card bg-white p-8 rounded-2xl shadow-lg border border-champagne-gold/20 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                        <div class="text-4xl mb-4">😊</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-3">Ditt leende</h3>
+                        <p class="text-charcoal/70">Min absoluta favoritvy. Det räcker att du ser på mig för att allt ska lösa sig.</p>
+                    </div>
+                    <div class="love-card bg-white p-8 rounded-2xl shadow-lg border border-champagne-gold/20 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-3">Din intelligens</h3>
+                        <p class="text-charcoal/70">Du frågar mig om drakar finns.</p>
+                    </div>
+                    <div class="love-card bg-white p-8 rounded-2xl shadow-lg border border-champagne-gold/20 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                        <div class="text-4xl mb-4">💪</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-3">Din styrka</h3>
+                        <p class="text-charcoal/70">Min klippa. Du imponerar på mig varje dag med hur du hanterar allt.</p>
+                    </div>
+                    <div class="love-card bg-white p-8 rounded-2xl shadow-lg border border-champagne-gold/20 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-3">Din kreativitet</h3>
+                        <p class="text-charcoal/70">Här måste jag erkänna att det är sparsamt 🙃</p>
+                    </div>
+                    <div class="love-card bg-white p-8 rounded-2xl shadow-lg border border-champagne-gold/20 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                        <div class="text-4xl mb-4">🌟</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-3">Din själ</h3>
+                        <p class="text-charcoal/70">Du strålar inifrån och ut. Du gör helt enkelt allt lite bättre.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Love Messages Section -->
+        <section class="py-20 px-6 bg-gradient-to-br from-rose-50 via-pink-50 to-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <div class="text-6xl mb-6">💬</div>
+                    <h2 class="text-5xl md:text-6xl font-bold text-charcoal mb-6 serif">Våra Hjärtmeddelanden</h2>
+                    <p class="text-xl text-charcoal/70 max-w-3xl mx-auto leading-relaxed">
+                        Ord som kommer från hjärtat och stannar för evigt
+                        <span class="text-champagne-gold font-bold script-font text-2xl block mt-2">Varje meddelande är en påminnelse om vår kärlek</span>
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <!-- Message 1 -->
+                    <div class="love-message-card bg-white p-8 rounded-3xl shadow-2xl border border-champagne-gold/20 fade-in-up relative overflow-hidden">
+                        <div class="absolute top-4 right-4">
+                            <div class="bg-gradient-to-br from-champagne-gold to-dusty-rose text-white px-3 py-1 rounded-full text-sm font-bold">
+                                ❤️ Thindra till Simon
+                            </div>
+                        </div>
+                        <div class="text-4xl mb-4">💕</div>
+                        <h3 class="text-2xl font-bold text-charcoal mb-4 serif">Du är allt för mig</h3>
+                        <div class="text-charcoal/70 leading-relaxed space-y-3 script-font">
+                            <p>"Jag ville bara säga hur värdefull du är för mig. På riktigt.</p>
+                            <p>Jag vill att du ska veta hur mycket du betyder för mig och att jag har aldrig varit så säker på något som att jag vill vara med just DIG.</p>
+                            <p class="text-champagne-gold font-bold">Jag vill att vi kämpar för varandra, växer tillsammans och blir bättre människor."</p>
+                            <p class="text-dusty-rose font-bold mt-4">Jag älskar dig oerhört mycket ❤️</p>
+                        </div>
+                        <div class="mt-6 flex justify-center space-x-2">
+                            <span class="text-2xl">💖</span>
+                            <span class="text-2xl">🌹</span>
+                            <span class="text-2xl">✨</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Message 2 -->
+                    <div class="love-message-card bg-gradient-to-br from-champagne-gold/10 to-dusty-rose/10 p-8 rounded-3xl shadow-2xl border border-dusty-rose/20 fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="absolute top-4 right-4">
+                            <div class="bg-gradient-to-br from-dusty-rose to-champagne-gold text-white px-3 py-1 rounded-full text-sm font-bold">
+                                🥰 Thindra till Simon
+                            </div>
+                        </div>
+                        <div class="text-4xl mb-4">🥰</div>
+                        <h3 class="text-2xl font-bold text-charcoal mb-4 serif">Min Simis</h3>
+                        <div class="text-charcoal/70 leading-relaxed space-y-3 script-font">
+                            <p>"Hej min Simis🥰 blir lika glad varje gång jag ser en notis från dig när jag jobbar🤭❤️"</p>
+                            <p class="text-champagne-gold font-bold">"Det är nog helt lugnt hjärtat, försök att inte pilla mer så kan jag kolla på de ikväll."</p>
+                            <p>"Ta på dig en tröja och känn inte mer, försök att inte tänka på det, jag är säker på att det inte är nån fara bara du försöker stå emot o inte pillar mer nu."</p>
+                            <p class="text-dusty-rose font-bold mt-4">o tack detsamma finaste🫶🏻</p>
+                        </div>
+                        <div class="mt-6 flex justify-center space-x-2">
+                            <span class="text-2xl">💕</span>
+                            <span class="text-2xl">🌟</span>
+                            <span class="text-2xl">💖</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Message 3 -->
+                    <div class="love-message-card bg-white p-8 rounded-3xl shadow-2xl border border-champagne-gold/20 fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="absolute top-4 right-4">
+                            <div class="bg-gradient-to-br from-champagne-gold to-dusty-rose text-white px-3 py-1 rounded-full text-sm font-bold">
+                                🥺 Thindra till Simon
+                            </div>
+                        </div>
+                        <div class="text-4xl mb-4">🥺</div>
+                        <h3 class="text-2xl font-bold text-charcoal mb-4 serif">Ta vad du vill</h3>
+                        <div class="text-charcoal/70 leading-relaxed space-y-3 script-font">
+                            <p>"Du får ta vad du vill hos mig❤️ Men snälla ta inte så jääkla mycket ansiktstvätt, den är ju typ slut märkte jag i morse hur mycket tvål använder du egentligen😆"</p>
+                            <p class="text-champagne-gold font-bold">"man behöver bara en liten liten plutt, den brukar räcka flera månader för mig❤️du överdoserar ansiktsvårdsprodukter sötis😆"</p>
+                            <p>"Men åå gulle du🥺🥹❤️jag älskar dig dig också oerhört mycket, mest av allt❤️"</p>
+                        </div>
+                        <div class="mt-6 flex justify-center space-x-2">
+                            <span class="text-2xl">😂</span>
+                            <span class="text-2xl">💕</span>
+                            <span class="text-2xl">🥰</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Message 4 -->
+                    <div class="love-message-card bg-gradient-to-br from-dusty-rose/10 to-champagne-gold/10 p-8 rounded-3xl shadow-2xl border border-champagne-gold/20 fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="absolute top-4 right-4">
+                            <div class="bg-gradient-to-br from-champagne-gold to-dusty-rose text-white px-3 py-1 rounded-full text-sm font-bold">
+                                💪 Thindra till Simon
+                            </div>
+                        </div>
+                        <div class="text-4xl mb-4">💪</div>
+                        <h3 class="text-2xl font-bold text-charcoal mb-4 serif">Du klarar allt</h3>
+                        <div class="text-charcoal/70 leading-relaxed space-y-3 script-font">
+                            <p>"Gör de som känns bäst för dig hjärtat❤️du är så pass duktig så missar du en lektion är det inte hela världen heller."</p>
+                            <p class="text-champagne-gold font-bold">"Men känns de bäst att va med på plats så är det bara att gå dit och brösta det, jag fattar att det kan kännas lite jobbigt men du kan inte gömma dig heller."</p>
+                            <p>"Folk glömmer sånt här med tiden ändå❤️jag älskar dig❣️"</p>
+                        </div>
+                        <div class="mt-6 flex justify-center space-x-2">
+                            <span class="text-2xl">💖</span>
+                            <span class="text-2xl">🌹</span>
+                            <span class="text-2xl">✨</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Love Declaration -->
+                <div class="text-center fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="bg-gradient-to-br from-champagne-gold/10 to-dusty-rose/10 p-12 rounded-3xl border border-champagne-gold/20">
+                        <h3 class="text-3xl font-bold text-charcoal mb-6 serif">Våra Ord, Vår Kärlek</h3>
+                        <div class="text-xl text-charcoal/80 leading-relaxed space-y-4 script-font">
+                            <p class="text-2xl text-champagne-gold font-bold">Varje meddelande är ett bevis på vår kärlek 💕</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Romantic Photo Album -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <div class="text-6xl mb-6">📸</div>
+                    <h2 class="text-5xl md:text-6xl font-bold text-charcoal mb-6 serif">Vårt Kärleksalbum</h2>
+                    <p class="text-xl text-charcoal/70 max-w-3xl mx-auto leading-relaxed">
+                        Ögonblick som fångar vår kärlek
+                        <span class="text-champagne-gold font-bold script-font text-2xl block mt-2">Varje bild är ett minne värt att bevara</span>
+                    </p>
+                </div>
+                
+                <!-- Album Container -->
+                <div class="bg-gradient-to-br from-cream to-white p-8 rounded-3xl shadow-2xl border border-champagne-gold/20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Image 1 -->
+                        <div class="album-item relative group fade-in-up">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <img src="alb1.jpg" alt="Vårt minne 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Minne #1</p>
+                                        <p class="text-xs opacity-80">Bara en massa kärlek</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Image 2 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.1s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <img src="alb2.jpg" alt="Vårt minne 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Minne #2</p>
+                                        <p class="text-xs opacity-80">Här är dina goingar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Image 3 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.2s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <img src="alb3.jpg" alt="Vårt minne 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Minne #3</p>
+                                        <p class="text-xs opacity-80">Lycka i ditt leende</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Image 4 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.3s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <img src="alb4.jpg" alt="Vårt minne 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Minne #4</p>
+                                        <p class="text-xs opacity-80">Haaaaaloooo eller</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Image 5 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.4s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <img src="alb5.jpg" alt="Vårt minne 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Minne #5</p>
+                                        <p class="text-xs opacity-80">Perfekt som alltid</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 6 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.5s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <video class="w-full h-full object-cover" muted loop>
+                                    <source src="alb6.MP4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Video #6</p>
+                                        <p class="text-xs opacity-80">Önskar jag öste mer snö på dig</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <div class="bg-champagne-gold text-white px-2 py-1 rounded-full text-xs font-bold">
+                                        🎬 VIDEO
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 7 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.6s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <video class="w-full h-full object-cover" muted loop>
+                                    <source src="alb7.MP4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Video #7</p>
+                                        <p class="text-xs opacity-80">Magic Mike 2.0</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <div class="bg-champagne-gold text-white px-2 py-1 rounded-full text-xs font-bold">
+                                        🎬 VIDEO
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 8 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.7s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <video class="w-full h-full object-cover" muted loop>
+                                    <source src="alb8.MP4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Video #8</p>
+                                        <p class="text-xs opacity-80">Hästhästhäst</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <div class="bg-champagne-gold text-white px-2 py-1 rounded-full text-xs font-bold">
+                                        🎬 VIDEO
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 9 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.8s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <video class="w-full h-full object-cover" muted loop>
+                                    <source src="alb9.MP4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Video #9</p>
+                                        <p class="text-xs opacity-80">Gömmer mig...</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <div class="bg-champagne-gold text-white px-2 py-1 rounded-full text-xs font-bold">
+                                        🎬 VIDEO
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 10 -->
+                        <div class="album-item relative group fade-in-up" style="animation-delay: 0.9s;">
+                            <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                                <video class="w-full h-full object-cover" muted loop>
+                                    <source src="alb10.MP4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <div class="text-white">
+                                        <p class="text-sm font-medium">Video #10</p>
+                                        <p class="text-xs opacity-80">Obeskrivligt vackra byxor!</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4">
+                                    <div class="bg-champagne-gold text-white px-2 py-1 rounded-full text-xs font-bold">
+                                        🎬 VIDEO
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Album Footer -->
+                    <div class="mt-12 text-center">
+                        <p class="text-xl text-champagne-gold script-font">
+                            "Varje bild, varje video, varje ögonblick med dig är en skatt 💕"
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <span class="text-3xl">📸</span>
+                            <span class="text-3xl">🎬</span>
+                            <span class="text-3xl">💕</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- My Promise to You -->
+        <section class="py-20 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <div class="text-6xl mb-6">💙</div>
+                    <h2 class="text-5xl font-bold text-charcoal mb-6 serif">Ett löfte för vår framtid</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content -->
+                    <div class="fade-in-up">
+                        <div class="bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-slate-200">
+                            <p class="text-xl text-charcoal/80 leading-relaxed mb-6">
+                                Jag vill alltid vara mitt bästa jag för dig. Efter det som hände har jag lärt mig att min kropp är extra känslig och att jag aldrig mer ska blanda alkohol med min medicin. Det är ett löfte jag håller för att jag är rädd om oss och vår framtid.
+                            </p>
+                            <div class="flex justify-center space-x-3 mt-8">
+                                <span class="text-2xl">💙</span>
+                                <span class="text-2xl">🤝</span>
+                                <span class="text-2xl">❤️</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Content -->
+                    <div class="fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-slate-400 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                            <div class="relative bg-white p-6 rounded-3xl shadow-2xl border border-slate-200">
+                                <img src="läkare.png" alt="Läkarbesök" class="w-full h-auto object-cover rounded-2xl">
+                                <div class="mt-4 text-center">
+                                    <p class="text-sm text-slate-600 font-medium">En påminnelse om vårt löfte</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="py-16 px-6 bg-gradient-to-t from-cream to-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-champagne-gold to-dusty-rose rounded-full mx-auto mb-6 pulse-gold flex items-center justify-center">
+                    <i data-lucide="heart" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-charcoal mb-2 serif">Thindra & Flärpen</h3>
+                <p class="text-charcoal/60">Gjord med all min kärlek ❤️</p>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- EmailJS for real email sending -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("1Odm5gtp9Mg1mSbTZ"); // You'll need to sign up for EmailJS
+        })();
+        
+        // Heart button functionality with email sending
+        document.getElementById('heart-btn').addEventListener('click', function(e) {
+            createHeartExplosion(e.pageX, e.pageY);
+            sendLoveEmail();
+        });
+        
+        // Random love messages for Thindra
+        const loveMessages = [
+            {
+                subject: "💕 En liten påminnelse från din Flärpen",
+                body: "Hej min älskade Thindra! 💕\n\nJag ville bara skicka en liten påminnelse om hur otroligt fantastisk du är. Du är den starkaste, vackraste och mest inspirerande powerkvinnan jag någonsin träffat. Varje dag med dig är en gåva.\n\nDu är min allt. ❤️\n\nDin Flärpen"
+            },
+            {
+                subject: "🌟 Du är min powerkvinna!",
+                body: "Min älskade Thindra! 🌟\n\nTänkte bara säga att du är den mest otroliga powerkvinnan jag känner. Din styrka, din intelligens, ditt hjärta - allt i dig är magiskt. Aldrig glöm hur fantastisk du är!\n\nJag älskar dig mer än ord kan beskriva. 💖\n\nDin Flärpen"
+            },
+            {
+                subject: "💝 Du gör allt bättre",
+                body: "Hej min Thindra! 💝\n\nVille bara påminna dig om att du är den person som gör allt i mitt liv bättre. Ditt leende, din skratt, din närvaro - allt är perfekt. Du är en riktig powerkvinna som tar världen med storm!\n\nTack för att du finns. ❤️\n\nDin Flärpen"
+            },
+            {
+                subject: "👑 Min prinsessa, min powerkvinna",
+                body: "Min älskade Thindra! 👑\n\nDu är både min prinsessa och den starkaste powerkvinnan jag vet. Aldrig underskatta hur mycket du betyder för mig och hur otrolig du är. Du kan hantera vad som helst!\n\nJag är den lyckligaste som får älska dig. 💕\n\nDin Flärpen"
+            },
+            {
+                subject: "💪 Världens bästa Thindra",
+                body: "Hej min powerkvinna! 💪\n\nJag ville bara säga att du är helt otrolig. Din styrka, din kärlek, din intelligens - allt i dig är exceptionellt. Aldrig glöm vilken fantastisk person du är!\n\nDu är mitt allt, min Thindra. ❤️\n\nDin Flärpen"
+            },
+            {
+                subject: "✨ Du är magisk",
+                body: "Min älskade Thindra! ✨\n\nDet finns något magiskt med dig. Du är den enda powerkvinnan som kan få mig att känna mig så här lycklig. Tack för att du är du - den bästa versionen av dig själv.\n\nJag älskar dig oändligt mycket. 💖\n\nDin Flärpen"
+            },
+            {
+                subject: "🚀 Du tar världen med storm",
+                body: "Hej min fantastiska Thindra! 🚀\n\nDu är en riktig powerkvinna som kan ta över världen! Aldrig glöm din styrka och ditt värde. Du är otrolig och jag är så stolt över att få kalla dig min.\n\nDu är allt för mig. 💕\n\nDin Flärpen"
+            },
+            {
+                subject: "💖 Min favoritperson",
+                body: "Min älskade Thindra! 💖\n\nDu är och kommer alltid att vara min favoritperson i hela världen. Du är den starkaste, vackraste och mest underbara powerkvinnan som finns.\n\nTack för att du finns i mitt liv. ❤️\n\nDin Flärpen"
+            }
+        ];
+        
+        function sendLoveEmail() {
+            // Select a random message
+            const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            
+            // Show sending animation
+            showSendingAnimation();
+            
+            // Send real email using EmailJS
+            emailjs.send("service_whxr3ga", "template_mpz56ql", {
+                to_email: 'sfprinsen@gmail.com',
+                subject: randomMessage.subject,
+                message: randomMessage.body,
+                from_name: 'Din Flärpen'
+            }).then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showLoveConfirmation();
+            }, function(error) {
+                console.log('FAILED...', error);
+                showErrorConfirmation();
+            });
+        }
+        
+        function showSendingAnimation() {
+            // Create sending animation
+            const sending = document.createElement('div');
+            sending.className = 'fixed top-4 right-4 bg-champagne-gold text-white px-6 py-3 rounded-lg shadow-lg z-50 fade-in-up';
+            sending.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <div class="animate-spin">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <span>Skickar kärlek till Thindra... 📧</span>
+                </div>
+            `;
+            
+            document.body.appendChild(sending);
+            
+            // Remove after 1.5 seconds
+            setTimeout(() => {
+                sending.remove();
+            }, 1500);
+        }
+        
+        function showLoveConfirmation() {
+            // Create a temporary confirmation message
+            const confirmation = document.createElement('div');
+            confirmation.className = 'fixed top-4 right-4 bg-champagne-gold text-white px-6 py-3 rounded-lg shadow-lg z-50 fade-in-up';
+            confirmation.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <span class="text-xl">💕</span>
+                    <span>Kärlek skickad! 📧</span>
+                </div>
+            `;
+            
+            document.body.appendChild(confirmation);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                confirmation.remove();
+            }, 3000);
+        }
+        
+        function showErrorConfirmation() {
+            // Create error message
+            const error = document.createElement('div');
+            error.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 fade-in-up';
+            error.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <span class="text-xl">❌</span>
+                    <span>Kunde inte skicka mejl</span>
+                </div>
+            `;
+            
+            document.body.appendChild(error);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                error.remove();
+            }, 3000);
+        }
+        
+        function createHeartExplosion(x, y) {
+            const colors = ['#ef4444', '#f87171', '#fca5a5', '#fecaca'];
+            const symbols = ['❤️', '💕', '💖', '💗', '💝'];
+            
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-particle';
+                    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    heart.style.left = x + 'px';
+                    heart.style.top = y + 'px';
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                    
+                    const angle = (Math.PI * 2 * i) / 12;
+                    const velocity = Math.random() * 50 + 30;
+                    heart.style.transform = `translate(${Math.cos(angle) * velocity}px, ${Math.sin(angle) * velocity}px)`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }, i * 50);
+            }
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-charcoal"></i>';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-charcoal"></i>';
+            }
+            lucide.createIcons();
+        });
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-charcoal"></i>';
+                isMenuOpen = false;
+                lucide.createIcons();
+            });
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Download CV function
+        function downloadCV() {
+            // Create CV content
+            const cvContent = `
+THINDRA LUNDQVIST
+Teamleader
+===============================
+
+KONTAKT
+Engelbrektsgatan 22 B, 302 66 Halmstad
+thindrajohannalundqvist@gmail.com
+073-637 13 58
+Anställningsnummer: 753282
+
+PROFESSIONELL SAMMANFATTNING
+Resultatdriven och engagerad teamleader med dokumenterad erfarenhet av att leda team, utbilda personal och driva operativ verksamhet inom logistik. Jag är övertygad om att med mina egenskaper kan bidra till att skapa en positiv och produktiv arbetsmiljö samt utveckling av mig själv, min grupp och företaget i helhet.
+
+ARBETSERFARENHET
+
+1 mars 2024 - nu
+Teamleader vik, Biltema Logistics AB
+• Upplärning av ny personal och kompetensutveckling
+• Ansvar för dagliga driften och operativ ledning
+• Systemhantering i Astro och uppföljning av resultat
+• Arbetsmiljöansvar och säkerhetskoordinering
+
+5 september 2022 - 29 februari 2024
+Lagermedarbetare, Biltema Logistics AB
+• Avancerat truckarbete (LA(H5), smalgång(H5), utlast, inlast)
+• GM-dator hantering och administrativa system
+• Lossning, lastning och förflyttning av gods
+• Plock i olika köer och inventering
+
+april 2022 - augusti 2022
+Butiksmedarbetare, Biltema Ljungby
+• Kassaarbete och kundservice i högklass
+• Extra ansvar: upplärning av sommarpersonal
+• Butikens öppnande/stängning och kontanthantering
+• Beställningar och mottagande av gods från lager
+
+UTBILDNING
+2019-2022 
+Ingelstads naturbruksgymnasium, Inriktning Ridsport
+• Gymnasieexamen med godkänt yrkesprov som hästskötare
+• Godkänd grundkurs i läkemedelshantering (D9 för häst)
+• Godkänd HLR utbildning
+• Toppbetyg i arbetsmiljö och ergonomi
+• Kurs i entreprenörskap med fokus på ledarskap
+
+MERITER & CERTIFIKAT
+• B-körkort
+• Truck A1-A4, B1-B3 + B5
+• Godkänd HLR utbildning
+• Ergonomiutbildning (Biltema Logistics AB)
+• Misskötsamhet (Utbildning av Biltema Logistic AB)
+• Krisstöd och krishantering (Utbildning av Biltema Logistic AB)
+• ADR 1.3 och lastsäkring (Utbildning av Biltema Logistic AB)
+• Kompetensbaserad rekrytering (Utbildning av Biltema Logistic AB)
+• Datorkunskaper, Astro-kunskaper, Schema-kunskaper
+
+KOMPETENSER
+Målmedveten • Stresstålig • Problemlösning • Pedagogisk • Lättlärd • Flexibel
+
+REFERENSER
+Anders Lindqvist, närmsta chef (lämnas på begäran)
+            `;
+            
+            // Create blob and download
+            const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Thindra_Lundqvist_CV.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        // Love Counter - ULTIMATE LUXURY VERSION
+        let countingUp = false;
+        
+        function updateLoveCounter() {
+            const startDate = new Date('2025-12-25T12:00:00'); // Christmas Day 2025 kl 12:00
+            const now = new Date();
+            
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Count up animation on first load
+            if (!countingUp) {
+                countingUp = true;
+                animateCounter('days', days);
+                animateCounter('hours', hours);
+                animateCounter('minutes', minutes);
+                animateCounter('seconds', seconds);
+            } else {
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+        
+        function animateCounter(id, target) {
+            const element = document.getElementById(id);
+            const duration = 2000; // 2 seconds for dramatic count-up
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
+        }
+        
+        // Update counter every SECOND for real-time luxury feel
+        setInterval(updateLoveCounter, 1000);
+        updateLoveCounter();
+        
+        // Music Player
+        let isPlaying = false;
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        
+        musicToggle.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                musicIcon.setAttribute('data-lucide', 'pause');
+                musicToggle.classList.add('music-playing');
+                // In a real implementation, you would play actual audio here
+            } else {
+                musicIcon.setAttribute('data-lucide', 'play');
+                musicToggle.classList.remove('music-playing');
+            }
+            
+            lucide.createIcons();
+        });
+        
+        // Timeline scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Love card interactions
+        document.querySelectorAll('.love-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Create a heart explosion effect
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = Math.random() * window.innerHeight + 'px';
+                heart.style.fontSize = '2rem';
+                heart.style.pointerEvents = 'none';
+                heart.style.animation = 'floatUp 3s ease-out forwards';
+                heart.style.zIndex = '9999';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            });
+        });
+        
+        // Add floating heart animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-200px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Love messages click effect
+        document.querySelectorAll('.love-message-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Create floating hearts from messages
+                for (let i = 0; i < 8; i++) {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = ['💕', '❤️', '💖', '💗', '💝', '🥰', '💋', '🌹'][Math.floor(Math.random() * 8)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = (this.getBoundingClientRect().left + Math.random() * this.offsetWidth) + 'px';
+                    heart.style.top = (this.getBoundingClientRect().top + Math.random() * this.offsetHeight) + 'px';
+                    heart.style.fontSize = '1.5rem';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.animation = 'floatUp 3s ease-out forwards';
+                    heart.style.zIndex = '9999';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }
+                
+                // Pulse effect
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-8px)';
+                }, 200);
+            });
+        });
+        
+        // Album items click effect
+        document.querySelectorAll('.album-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Create sparkles for photos/videos
+                for (let i = 0; i < 6; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.innerHTML = ['✨', '📸', '🎬', '💕', '🌟', '💖'][Math.floor(Math.random() * 6)];
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.left = (this.getBoundingClientRect().left + this.offsetWidth / 2) + 'px';
+                    sparkle.style.top = (this.getBoundingClientRect().top + this.offsetHeight / 2) + 'px';
+                    sparkle.style.fontSize = '1.8rem';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.animation = 'sparkle 1.5s ease-out forwards';
+                    sparkle.style.zIndex = '9999';
+                    
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 1500);
+                }
+                
+                // Scale effect
+                this.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 200);
+            });
+        });
+        
+        // Auto-play videos on hover
+        document.querySelectorAll('.album-item video').forEach(video => {
+            const parent = video.closest('.album-item');
+            
+            parent.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            
+            parent.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+        
+        // Add fadeInOut animation
+        const fadeStyle = document.createElement('style');
+        fadeStyle.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            }
+        `;
+        document.head.appendChild(fadeStyle);
+        
+        // Parallax effect for floating memories
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-memory-card');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px) rotate(${Math.sin(scrolled * 0.001) * 5}deg)`;
+            });
+        });
+        
+        // Enhanced love card interactions
+        document.querySelectorAll('.floating-memory-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Create floating hearts from memory cards
+                for (let i = 0; i < 5; i++) {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = ['💕', '✨', '🌟', '💖', '🌹'][Math.floor(Math.random() * 5)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = (this.getBoundingClientRect().left + Math.random() * this.offsetWidth) + 'px';
+                    heart.style.top = (this.getBoundingClientRect().top + Math.random() * this.offsetHeight) + 'px';
+                    heart.style.fontSize = '1.5rem';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.animation = 'floatUp 2s ease-out forwards';
+                    heart.style.zIndex = '9999';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }
+            });
+        });
+        
+        // Love letters click effect
+        document.querySelectorAll('.love-letter').forEach(letter => {
+            letter.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px)';
+                }, 200);
+                
+                // Create romantic sparkle effect
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = (this.getBoundingClientRect().left + this.offsetWidth / 2) + 'px';
+                sparkle.style.top = (this.getBoundingClientRect().top + this.offsetHeight / 2) + 'px';
+                sparkle.style.fontSize = '2rem';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                sparkle.style.zIndex = '9999';
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            });
+        });
+        
+        // Add sparkle animation
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
+            @keyframes sparkle {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+                100% { transform: scale(0) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(sparkleStyle);
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('backdrop-blur-md', 'bg-white/90');
+            } else {
+                navbar.classList.remove('backdrop-blur-md', 'bg-white/90');
+            }
+        });
+    </script>
+</body>
+</html>
